@@ -4,7 +4,7 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class BreedVM
     {
-        short BreedId { get; set; }
-        string Name { get; set; }
+        public short BreedId { get; set; }
+        public string Name { get; set; }
     }
 }

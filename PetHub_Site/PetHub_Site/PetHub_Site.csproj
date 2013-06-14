@@ -34,12 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.0.0-ci1036\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0-ci1036\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="cabinet.patterns, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\EvolucionaMovil\cabinet.patterns\bin\Release\cabinet.patterns.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
@@ -78,26 +86,29 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\ViewModels\Album.cs" />
-    <Compile Include="Models\ViewModels\Breed.cs" />
-    <Compile Include="Models\ViewModels\City.cs" />
-    <Compile Include="Models\ViewModels\Country.cs" />
-    <Compile Include="Models\ViewModels\Friendship.cs" />
-    <Compile Include="Models\ViewModels\Nickname.cs" />
-    <Compile Include="Models\ViewModels\Pet.cs" />
-    <Compile Include="Models\ViewModels\PetCounter.cs" />
-    <Compile Include="Models\ViewModels\PetOwnerHistory.cs" />
-    <Compile Include="Models\ViewModels\PetProfile.cs" />
-    <Compile Include="Models\ViewModels\PetRate.cs" />
-    <Compile Include="Models\ViewModels\Picture.cs" />
-    <Compile Include="Models\ViewModels\PicturesDetail.cs" />
-    <Compile Include="Models\ViewModels\Privacy.cs" />
-    <Compile Include="Models\ViewModels\Profile.cs" />
-    <Compile Include="Models\ViewModels\RateCategory.cs" />
-    <Compile Include="Models\ViewModels\User.cs" />
-    <Compile Include="Models\ViewModels\UserLog.cs" />
-    <Compile Include="Models\ViewModels\UserRate.cs" />
-    <Compile Include="Models\ViewModels\WhoIsInPicture.cs" />
+    <Compile Include="Models\Extensions\MapperExtensions.cs" />
+    <Compile Include="Models\Helpers\AutoMapperBootStrapper.cs" />
+    <Compile Include="Models\ViewModels\AlbumVM.cs" />
+    <Compile Include="Models\ViewModels\BreedVM.cs" />
+    <Compile Include="Models\ViewModels\CityVM.cs" />
+    <Compile Include="Models\ViewModels\TopRateCategoryVM.cs" />
+    <Compile Include="Models\ViewModels\CountryVM.cs" />
+    <Compile Include="Models\ViewModels\FriendshipVM.cs" />
+    <Compile Include="Models\ViewModels\NicknameVM.cs" />
+    <Compile Include="Models\ViewModels\PetVM.cs" />
+    <Compile Include="Models\ViewModels\PetCounterVM.cs" />
+    <Compile Include="Models\ViewModels\PetOwnerHistoryVM.cs" />
+    <Compile Include="Models\ViewModels\PetProfileVM.cs" />
+    <Compile Include="Models\ViewModels\PetRateVM.cs" />
+    <Compile Include="Models\ViewModels\PictureVM.cs" />
+    <Compile Include="Models\ViewModels\PicturesDetailVM.cs" />
+    <Compile Include="Models\ViewModels\PrivacyVM.cs" />
+    <Compile Include="Models\ViewModels\ProfileVM.cs" />
+    <Compile Include="Models\ViewModels\RateCategoryVM.cs" />
+    <Compile Include="Models\ViewModels\UserVM.cs" />
+    <Compile Include="Models\ViewModels\UserLogVM.cs" />
+    <Compile Include="Models\ViewModels\UserRateVM.cs" />
+    <Compile Include="Models\ViewModels\WhoIsInPictureVM.cs" />
     <Compile Include="Models\PawhubBD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,7 +158,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

@@ -750,6 +750,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="LoadTopRateCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -887,6 +888,7 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Profile" EntitySet="Profiles" />
           </AssociationSet>
+          <FunctionImport Name="LoadTopRateCategory" ReturnType="Collection(PawhubBDModel.TopRateCategory)" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -1476,6 +1478,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="TopRateCategory">
+          <Property Type="Guid" Name="PetId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="RateCategoryId" Nullable="false" />
+          <Property Type="Double" Name="Rating" Nullable="false" />
+          <Property Type="String" Name="PetName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Picture" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Rates" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1739,6 +1750,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="LoadTopRateCategory" FunctionName="PawhubBDModel.Store.LoadTopRateCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PawhubBDModel.TopRateCategory">
+                <ScalarProperty Name="PetId" ColumnName="PetId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="PetName" ColumnName="PetName" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Rates" ColumnName="Rates" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

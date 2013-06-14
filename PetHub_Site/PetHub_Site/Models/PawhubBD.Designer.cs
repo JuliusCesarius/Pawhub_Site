@@ -584,6 +584,18 @@ namespace PetHub_Site.Models
 
         #endregion
 
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<TopRateCategory> LoadTopRateCategory()
+        {
+            return base.ExecuteFunction<TopRateCategory>("LoadTopRateCategory");
+        }
+
+        #endregion
+
     }
 
     #endregion
@@ -5835,6 +5847,213 @@ namespace PetHub_Site.Models
                 }
             }
         }
+
+        #endregion
+
+    }
+
+    #endregion
+
+    #region ComplexTypes
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="PawhubBDModel", Name="TopRateCategory")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class TopRateCategory : ComplexObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TopRateCategory object.
+        /// </summary>
+        /// <param name="petId">Initial value of the PetId property.</param>
+        /// <param name="rateCategoryId">Initial value of the RateCategoryId property.</param>
+        /// <param name="rating">Initial value of the Rating property.</param>
+        /// <param name="petName">Initial value of the PetName property.</param>
+        public static TopRateCategory CreateTopRateCategory(global::System.Guid petId, global::System.Int16 rateCategoryId, global::System.Double rating, global::System.String petName)
+        {
+            TopRateCategory topRateCategory = new TopRateCategory();
+            topRateCategory.PetId = petId;
+            topRateCategory.RateCategoryId = rateCategoryId;
+            topRateCategory.Rating = rating;
+            topRateCategory.PetName = petName;
+            return topRateCategory;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid PetId
+        {
+            get
+            {
+                return _PetId;
+            }
+            set
+            {
+                OnPetIdChanging(value);
+                ReportPropertyChanging("PetId");
+                _PetId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PetId");
+                OnPetIdChanged();
+            }
+        }
+        private global::System.Guid _PetId;
+        partial void OnPetIdChanging(global::System.Guid value);
+        partial void OnPetIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 RateCategoryId
+        {
+            get
+            {
+                return _RateCategoryId;
+            }
+            set
+            {
+                OnRateCategoryIdChanging(value);
+                ReportPropertyChanging("RateCategoryId");
+                _RateCategoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RateCategoryId");
+                OnRateCategoryIdChanged();
+            }
+        }
+        private global::System.Int16 _RateCategoryId;
+        partial void OnRateCategoryIdChanging(global::System.Int16 value);
+        partial void OnRateCategoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double Rating
+        {
+            get
+            {
+                return _Rating;
+            }
+            set
+            {
+                OnRatingChanging(value);
+                ReportPropertyChanging("Rating");
+                _Rating = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Rating");
+                OnRatingChanged();
+            }
+        }
+        private global::System.Double _Rating;
+        partial void OnRatingChanging(global::System.Double value);
+        partial void OnRatingChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PetName
+        {
+            get
+            {
+                return _PetName;
+            }
+            set
+            {
+                OnPetNameChanging(value);
+                ReportPropertyChanging("PetName");
+                _PetName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PetName");
+                OnPetNameChanged();
+            }
+        }
+        private global::System.String _PetName;
+        partial void OnPetNameChanging(global::System.String value);
+        partial void OnPetNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Picture
+        {
+            get
+            {
+                return _Picture;
+            }
+            set
+            {
+                OnPictureChanging(value);
+                ReportPropertyChanging("Picture");
+                _Picture = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Picture");
+                OnPictureChanged();
+            }
+        }
+        private global::System.String _Picture;
+        partial void OnPictureChanging(global::System.String value);
+        partial void OnPictureChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Rates
+        {
+            get
+            {
+                return _Rates;
+            }
+            set
+            {
+                OnRatesChanging(value);
+                ReportPropertyChanging("Rates");
+                _Rates = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Rates");
+                OnRatesChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Rates;
+        partial void OnRatesChanging(Nullable<global::System.Int32> value);
+        partial void OnRatesChanged();
 
         #endregion
 

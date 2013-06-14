@@ -4,24 +4,24 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class PetProfileVM
     {
-        bool Alive { get; set; }
-        string BreedName { get; set; }
-        short? BreedId { get; set; }
-        string CoverPic { get; set; }
-        string Description { get; set; }
-        DateTime DOB { get; set; }
-        string FullName { get; set; }
-        int? LiveIn { get; set; }
-        string LiveInCity { get; set; }
-        bool? Neatured { get; set; }
-        string Pedigree { get; set; }
-        Guid PetId { get; set; }
-        string Picture { get; set; }
-        bool Sex { get; set; }
-        short Type { get; set; }
-        string TypeString { get; set; }
-        int? WasBornIn { get; set; }
-        string WasBornInCity { get; set; }
-        string Website { get; set; }
+        public bool Alive { get; set; }
+        public string BreedName { get; set; }
+        public short? BreedId { get; set; }
+        public string CoverPic { get; set; }
+        public string Description { get; set; }
+        public DateTime DOB { get; set; }
+        public string FullName { get; set; }
+        public int? LiveIn { get; set; }
+        public string LiveInCity { get; set; }
+        public bool? Neatured { get; set; }
+        public string Pedigree { get; set; }
+        public Guid PetId { get; set; }
+        public string Picture { get; set; }
+        public bool Sex { get; set; }
+        public short Type { get; set; }
+        public string TypeString { get; set; }
+        public int? WasBornIn { get; set; }
+        public string WasBornInCity { get; set; }
+        public string Website { get; set; }
     }
 }

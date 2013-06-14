@@ -4,10 +4,10 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class AlbumVM
     {
-        short AlbumId { get; set; }
-        string Description { get; set; }
-        string Name { get; set; }
-        short Privacy { get; set; }
-        Guid UserId { get; set; }
+        public short AlbumId { get; set; }
+        public string Description { get; set; }
+        public string Name { get; set; }
+        public short Privacy { get; set; }
+        public Guid UserId { get; set; }
     }
 }

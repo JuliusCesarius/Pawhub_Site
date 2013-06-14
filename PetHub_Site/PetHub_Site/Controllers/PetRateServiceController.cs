@@ -27,5 +27,11 @@ namespace PetHub_Site.Controllers
             var topByUser = Service.GetTopCategoryByUserId(id, 3, 10);
             return Json(topByUser, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetTopCategories()
+        {
+            var topCategories = Service.GetTopCategories();
+            return Json(topCategories, JsonRequestBehavior.AllowGet);
+        }
     }
 }

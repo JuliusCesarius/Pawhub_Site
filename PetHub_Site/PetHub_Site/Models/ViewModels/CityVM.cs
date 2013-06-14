@@ -3,8 +3,8 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class CityVM
     {
-        int CityId { get; set; }
-        short CountryId { get; set; }
-        string Name { get; set; }
+        public int CityId { get; set; }
+        public short CountryId { get; set; }
+        public string Name { get; set; }
     }
 }

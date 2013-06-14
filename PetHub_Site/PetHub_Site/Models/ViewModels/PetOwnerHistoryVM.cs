@@ -4,10 +4,10 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class PetOwnerHistoryVM
     {
-        DateTime AssignDate { get; set; }
-        DateTime? DeassociateDate { get; set; }
-        Guid PetId { get; set; }
-        int PetOwnerHistoryId { get; set; }
-        Guid UserId { get; set; }
+        public DateTime AssignDate { get; set; }
+        public DateTime? DeassociateDate { get; set; }
+        public Guid PetId { get; set; }
+        public int PetOwnerHistoryId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

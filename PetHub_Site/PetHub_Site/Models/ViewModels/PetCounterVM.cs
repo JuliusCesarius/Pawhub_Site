@@ -4,12 +4,12 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class PetCounterVM
     {
-        short Comments { get; set; }
-        short Following { get; set; }
-        short Friends { get; set; }
-        short Likes { get; set; }
-        Guid PetId { get; set; }
-        short Rates { get; set; }
-        short Views { get; set; }
+        public short Comments { get; set; }
+        public short Following { get; set; }
+        public short Friends { get; set; }
+        public short Likes { get; set; }
+        public Guid PetId { get; set; }
+        public short Rates { get; set; }
+        public short Views { get; set; }
     }
 }

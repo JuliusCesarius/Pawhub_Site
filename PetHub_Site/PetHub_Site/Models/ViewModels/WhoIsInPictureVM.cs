@@ -3,10 +3,10 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class WhoIsInPictureVM
     {
-        bool IsPet { get; set; }
-        Guid MemberId { get; set; }
-        string Name { get; set; }
-        Guid PictureId { get; set; }
-        string WhoIsInPictureId { get; set; }
+        public bool IsPet { get; set; }
+        public Guid MemberId { get; set; }
+        public string Name { get; set; }
+        public Guid PictureId { get; set; }
+        public string WhoIsInPictureId { get; set; }
     }
 }

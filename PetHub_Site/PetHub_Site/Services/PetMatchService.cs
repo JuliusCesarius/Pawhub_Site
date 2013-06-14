@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PetHub_Site.Repositories;
+using AutoMapper;
+using PetHub_Site.Models.ViewModels;
 using PetHub_Site.Models;
 
 namespace PetHub_Site.Services
@@ -11,10 +13,16 @@ namespace PetHub_Site.Services
     {
         private PetMatchRepository _repository;
 
-        public IEnumerable<UserRate> GetTopCategoryByUserId(Guid UserId, short RateCategoryId, short TopNumber)
+        public IEnumerable<UserRateVM> GetTopCategoryByUserId(Guid UserId, short RateCategoryId, short TopNumber)
         {
             var topCategory = ((PetMatchRepository)Repository).GetTopByUserId(UserId, RateCategoryId, TopNumber);
-            return topCategory;
+            return topCategory.ToListOfDestination<UserRateVM>();
+        }
+
+        public IEnumerable<TopRateCategoryVM> GetTopCategories()
+        {
+            var topCategory = ((PetMatchRepository)Repository).GetTopCategories();
+            return topCategory.ToListOfDestination<TopRateCategoryVM>();
         }
 
         protected override cabinet.patterns.interfaces.IRepository<Models.UserRate> Repository
@@ -27,6 +35,6 @@ namespace PetHub_Site.Services
                 }
                 return _repository;
             }
-        }
+        }        
     }
 }

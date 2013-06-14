@@ -3,9 +3,9 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class UserLogVM
     {
-        string LastActivity { get; set; }
-        DateTime LastActivityDate { get; set; }
-        Guid UserId { get; set; }
-        int UserLogId { get; set; }
+        public string LastActivity { get; set; }
+        public DateTime LastActivityDate { get; set; }
+        public Guid UserId { get; set; }
+        public int UserLogId { get; set; }
     }
 }

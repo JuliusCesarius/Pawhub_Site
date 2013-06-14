@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace PetHub_Site.Models.ViewModels
+namespace PetHub_Site.Models
 {
 
     public class ChangePasswordModel

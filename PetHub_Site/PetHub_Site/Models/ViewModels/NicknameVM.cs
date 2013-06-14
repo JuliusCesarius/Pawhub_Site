@@ -3,8 +3,8 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class NicknameVM
     {
-        string Name { get; set; }
-        short Privacy { get; set; }
-        Guid UserId { get; set; }
+        public string Name { get; set; }
+        public short Privacy { get; set; }
+        public Guid UserId { get; set; }
     }
 }

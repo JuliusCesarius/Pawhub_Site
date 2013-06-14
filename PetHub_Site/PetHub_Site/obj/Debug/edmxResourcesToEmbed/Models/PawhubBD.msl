@@ -1,211 +1,172 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PawhubBDModelStoreContainer" CdmEntityContainer="PawhubBDEntities">
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="PawhubBDModel.Album">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Breeds">
+      <EntityTypeMapping TypeName="PawhubBDModel.Breed">
+        <MappingFragment StoreEntitySet="Breeds">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BreedId" ColumnName="BreedId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Cities">
       <EntityTypeMapping TypeName="PawhubBDModel.City">
         <MappingFragment StoreEntitySet="Cities">
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-          <ScalarProperty Name="City1" ColumnName="City" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Countries">
       <EntityTypeMapping TypeName="PawhubBDModel.Country">
         <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-          <ScalarProperty Name="Country1" ColumnName="Country" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Friendships">
       <EntityTypeMapping TypeName="PawhubBDModel.Friendship">
         <MappingFragment StoreEntitySet="Friendships">
-          <ScalarProperty Name="UserRequestId" ColumnName="UserRequestId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Approved" ColumnName="Approved" />
-          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="IsPet" ColumnName="IsPet" />
           <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Nicknames">
-      <EntityTypeMapping TypeName="PawhubBDModel.Nickname">
-        <MappingFragment StoreEntitySet="Nicknames">
-          <ScalarProperty Name="NicknameId" ColumnName="NicknameId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Nickname1" ColumnName="Nickname" />
-          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserRequestId" ColumnName="UserRequestId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PetCounters">
       <EntityTypeMapping TypeName="PawhubBDModel.PetCounter">
         <MappingFragment StoreEntitySet="PetCounters">
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="Likes" ColumnName="Likes" />
-          <ScalarProperty Name="Following" ColumnName="Following" />
-          <ScalarProperty Name="Views" ColumnName="Views" />
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="Friends" ColumnName="Friends" />
           <ScalarProperty Name="Rates" ColumnName="Rates" />
+          <ScalarProperty Name="Friends" ColumnName="Friends" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="Following" ColumnName="Following" />
+          <ScalarProperty Name="Likes" ColumnName="Likes" />
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PetOwnerHistories">
       <EntityTypeMapping TypeName="PawhubBDModel.PetOwnerHistory">
         <MappingFragment StoreEntitySet="PetOwnerHistory">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
-          <ScalarProperty Name="DeassociateDate" ColumnName="DeassociateDate" />
           <ScalarProperty Name="PetOwnerHistoryId" ColumnName="PetOwnerHistoryId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PetProfiles">
-      <EntityTypeMapping TypeName="PawhubBDModel.PetProfile">
-        <MappingFragment StoreEntitySet="PetProfiles">
+          <ScalarProperty Name="DeassociateDate" ColumnName="DeassociateDate" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
           <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-          <ScalarProperty Name="Alive" ColumnName="Alive" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="Neatured" ColumnName="Neatured" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="LiveIn" ColumnName="LiveIn" />
-          <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
-          <ScalarProperty Name="Website" ColumnName="Website" />
-          <ScalarProperty Name="Breed" ColumnName="Breed" />
-          <ScalarProperty Name="Pedigree" ColumnName="Pedigree" />
-          <ScalarProperty Name="CoverPic" ColumnName="CoverPic" />
-          <ScalarProperty Name="PetProfileId" ColumnName="PetProfileId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PetRates">
       <EntityTypeMapping TypeName="PawhubBDModel.PetRate">
         <MappingFragment StoreEntitySet="PetRates">
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
-          <ScalarProperty Name="Rate1Star" ColumnName="Rate1Star" />
-          <ScalarProperty Name="Rate2Stars" ColumnName="Rate2Stars" />
-          <ScalarProperty Name="Rate3Stars" ColumnName="Rate3Stars" />
-          <ScalarProperty Name="Rate4Stars" ColumnName="Rate4Stars" />
-          <ScalarProperty Name="Rate5Stars" ColumnName="Rate5Stars" />
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="PetRateId" ColumnName="PetRateId" />
           <ScalarProperty Name="LastRateDate" ColumnName="LastRateDate" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Rate5Stars" ColumnName="Rate5Stars" />
+          <ScalarProperty Name="Rate4Stars" ColumnName="Rate4Stars" />
+          <ScalarProperty Name="Rate3Stars" ColumnName="Rate3Stars" />
+          <ScalarProperty Name="Rate2Stars" ColumnName="Rate2Stars" />
+          <ScalarProperty Name="Rate1Star" ColumnName="Rate1Star" />
+          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pets">
       <EntityTypeMapping TypeName="PawhubBDModel.Pet">
         <MappingFragment StoreEntitySet="Pets">
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pictures">
       <EntityTypeMapping TypeName="PawhubBDModel.Picture">
         <MappingFragment StoreEntitySet="Pictures">
-          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Path" ColumnName="Path" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PicturesDetails">
       <EntityTypeMapping TypeName="PawhubBDModel.PicturesDetail">
         <MappingFragment StoreEntitySet="PicturesDetails">
-          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Album" ColumnName="Album" />
-          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Privacies">
       <EntityTypeMapping TypeName="PawhubBDModel.Privacy">
         <MappingFragment StoreEntitySet="Privacy">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Profile" ColumnName="Profile" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Feed" ColumnName="Feed" />
           <ScalarProperty Name="Pics" ColumnName="Pics" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Profiles">
-      <EntityTypeMapping TypeName="PawhubBDModel.Profile">
-        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Feed" ColumnName="Feed" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Profile" ColumnName="Profile" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-          <ScalarProperty Name="LivesIn" ColumnName="LivesIn" />
-          <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
-          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RateCategories">
       <EntityTypeMapping TypeName="PawhubBDModel.RateCategory">
         <MappingFragment StoreEntitySet="RateCategories">
-          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserLogs">
       <EntityTypeMapping TypeName="PawhubBDModel.UserLog">
         <MappingFragment StoreEntitySet="UserLog">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
-          <ScalarProperty Name="LastActivity" ColumnName="LastActivity" />
           <ScalarProperty Name="UserLogId" ColumnName="UserLogId" />
+          <ScalarProperty Name="LastActivity" ColumnName="LastActivity" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserRates">
       <EntityTypeMapping TypeName="PawhubBDModel.UserRate">
         <MappingFragment StoreEntitySet="UserRates">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
-          <ScalarProperty Name="Rate1Star" ColumnName="Rate1Star" />
-          <ScalarProperty Name="Rate2Stars" ColumnName="Rate2Stars" />
-          <ScalarProperty Name="Rate3Stars" ColumnName="Rate3Stars" />
-          <ScalarProperty Name="Rate4Stars" ColumnName="Rate4Stars" />
-          <ScalarProperty Name="Rate5Stars" ColumnName="Rate5Stars" />
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
           <ScalarProperty Name="RateDate" ColumnName="RateDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WhoIsInPictures">
-      <EntityTypeMapping TypeName="PawhubBDModel.WhoIsInPicture">
-        <MappingFragment StoreEntitySet="WhoIsInPictures">
-          <ScalarProperty Name="WhoIsInPictureId" ColumnName="WhoIsInPictureId" />
-          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
-          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-          <ScalarProperty Name="IsPet" ColumnName="IsPet" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Rate5Stars" ColumnName="Rate5Stars" />
+          <ScalarProperty Name="Rate4Stars" ColumnName="Rate4Stars" />
+          <ScalarProperty Name="Rate3Stars" ColumnName="Rate3Stars" />
+          <ScalarProperty Name="Rate2Stars" ColumnName="Rate2Stars" />
+          <ScalarProperty Name="Rate1Star" ColumnName="Rate1Star" />
+          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -220,6 +181,17 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WhoIsInPictures">
+      <EntityTypeMapping TypeName="PawhubBDModel.WhoIsInPicture">
+        <MappingFragment StoreEntitySet="WhoIsInPictures">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsPet" ColumnName="IsPet" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+          <ScalarProperty Name="WhoIsInPictureId" ColumnName="WhoIsInPictureId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -239,5 +211,65 @@
         <ScalarProperty Name="UserId" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="PetProfiles">
+      <EntityTypeMapping TypeName="PawhubBDModel.PetProfile">
+        <MappingFragment StoreEntitySet="PetProfiles">
+          <ScalarProperty Name="CoverPic" ColumnName="CoverPic" />
+          <ScalarProperty Name="Pedigree" ColumnName="Pedigree" />
+          <ScalarProperty Name="BreedId" ColumnName="BreedId" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
+          <ScalarProperty Name="LiveIn" ColumnName="LiveIn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Neatured" ColumnName="Neatured" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Alive" ColumnName="Alive" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nicknames">
+      <EntityTypeMapping TypeName="PawhubBDModel.Nickname">
+        <MappingFragment StoreEntitySet="Nicknames">
+          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="PawhubBDModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
+          <ScalarProperty Name="LivesIn" ColumnName="LivesIn" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LoadTopRateCategory" FunctionName="PawhubBDModel.Store.LoadTopRateCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PawhubBDModel.TopRateCategory">
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="PetName" ColumnName="PetName" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Rates" ColumnName="Rates" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

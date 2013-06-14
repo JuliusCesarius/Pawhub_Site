@@ -3,13 +3,13 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class PicturesDetailVM
     {
-        AlbumVM Album { get; set; }
-        short AlbumId { get; set; }
-        DateTime CreationDate { get; set; }
-        string Description { get; set; }
-        decimal? Latitud { get; set; }
-        decimal? Longitud { get; set; }
-        string Name { get; set; }
-        Guid PictureId { get; set; }
+        public AlbumVM Album { get; set; }
+        public short AlbumId { get; set; }
+        public DateTime CreationDate { get; set; }
+        public string Description { get; set; }
+        public decimal? Latitud { get; set; }
+        public decimal? Longitud { get; set; }
+        public string Name { get; set; }
+        public Guid PictureId { get; set; }
     }
 }

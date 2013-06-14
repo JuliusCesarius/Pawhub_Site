@@ -5,9 +5,9 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class CountryVM
     {
-        IEnumerable<CityVM> Cities { get; set; }
-        short CountryId { get; set; }
-        string Name { get; set; }
+        public IEnumerable<CityVM> Cities { get; set; }
+        public short CountryId { get; set; }
+        public string Name { get; set; }
         //TODO: Agregar propiedad del Flag
     }
 }

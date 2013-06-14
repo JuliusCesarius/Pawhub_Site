@@ -3,11 +3,11 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class PrivacyVM
     {
-        short Address { get; set; }
-        short Feed { get; set; }
-        short Pics { get; set; }
-        short Profile { get; set; }
-        UserVM User { get; set; }
-        Guid UserId { get; set; }
+        public short Address { get; set; }
+        public short Feed { get; set; }
+        public short Pics { get; set; }
+        public short Profile { get; set; }
+        public UserVM User { get; set; }
+        public Guid UserId { get; set; }
     }
 }

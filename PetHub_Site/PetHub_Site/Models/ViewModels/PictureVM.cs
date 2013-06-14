@@ -4,13 +4,13 @@ namespace PetHub_Site.Models.ViewModels
 {
     public class PictureVM
     {
-        DateTime CreationDate { get; set; }
-        String CreationDateStr { get; set; }
-        string Path { get; set; }
-        Guid PictureId { get; set; }
-        PicturesDetailVM PicturesDetail { get; set; }
-        UserVM User { get; set; }
-        Guid UserId { get; set; }
-        IEnumerable<WhoIsInPictureVM> WhoIsInPictures { get; set; }
+        public DateTime CreationDate { get; set; }
+        public string CreationDateStr { get; set; }
+        public string Path { get; set; }
+        public Guid PictureId { get; set; }
+        public PicturesDetailVM PicturesDetail { get; set; }
+        public UserVM User { get; set; }
+        public Guid UserId { get; set; }
+        public IEnumerable<WhoIsInPictureVM> WhoIsInPictures { get; set; }
     }
 }

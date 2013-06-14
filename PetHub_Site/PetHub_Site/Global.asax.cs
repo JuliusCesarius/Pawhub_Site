@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using PetHub_Site.Models.Helpers;
 
 namespace PetHub_Site
 {
@@ -32,7 +33,7 @@ namespace PetHub_Site
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            AutoMapperBootStrapperHelper.Bootstrap();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
