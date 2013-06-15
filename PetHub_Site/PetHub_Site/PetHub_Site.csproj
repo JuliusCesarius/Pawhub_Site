@@ -91,6 +91,10 @@
     <Compile Include="Models\ViewModels\AlbumVM.cs" />
     <Compile Include="Models\ViewModels\BreedVM.cs" />
     <Compile Include="Models\ViewModels\CityVM.cs" />
+    <Compile Include="Models\ViewModels\PetBasicVM.cs" />
+    <Compile Include="Models\ViewModels\RateAPetVM.cs" />
+    <Compile Include="Models\ViewModels\RatingVM.cs" />
+    <Compile Include="Models\ViewModels\RatesVM.cs" />
     <Compile Include="Models\ViewModels\TopRateCategoryVM.cs" />
     <Compile Include="Models\ViewModels\CountryVM.cs" />
     <Compile Include="Models\ViewModels\FriendshipVM.cs" />

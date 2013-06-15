@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PetHub_Site.Services;
+using PetHub_Site.Models.ViewModels;
 
 namespace PetHub_Site.Controllers
 {
@@ -32,6 +33,13 @@ namespace PetHub_Site.Controllers
         {
             var topCategories = Service.GetTopCategories();
             return Json(topCategories, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult RateAPet(Guid Id, Guid? PetId, List<RatingVM> Ratings)
+        {
+            Guid petGuid = PetId != null ? PetId.Value : new Guid();
+            var nextPetToRate = Service.RateAPet(Id, petGuid, Ratings);
+            return Json(nextPetToRate, JsonRequestBehavior.AllowGet);
         }
     }
 }

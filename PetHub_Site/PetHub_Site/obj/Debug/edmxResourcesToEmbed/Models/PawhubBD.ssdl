@@ -354,12 +354,7 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PetId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RateCategoryId" Type="smallint" Nullable="false" />
-    <Property Name="Rate1Star" Type="smallint" Nullable="false" />
-    <Property Name="Rate2Stars" Type="smallint" Nullable="false" />
-    <Property Name="Rate3Stars" Type="smallint" Nullable="false" />
-    <Property Name="Rate4Stars" Type="smallint" Nullable="false" />
-    <Property Name="Rate5Stars" Type="smallint" Nullable="false" />
-    <Property Name="Rating" Type="float" Nullable="false" />
+    <Property Name="Stars" Type="smallint" Nullable="false" />
     <Property Name="RateDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">

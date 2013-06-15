@@ -154,22 +154,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserRates">
-      <EntityTypeMapping TypeName="PawhubBDModel.UserRate">
-        <MappingFragment StoreEntitySet="UserRates">
-          <ScalarProperty Name="RateDate" ColumnName="RateDate" />
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
-          <ScalarProperty Name="Rate5Stars" ColumnName="Rate5Stars" />
-          <ScalarProperty Name="Rate4Stars" ColumnName="Rate4Stars" />
-          <ScalarProperty Name="Rate3Stars" ColumnName="Rate3Stars" />
-          <ScalarProperty Name="Rate2Stars" ColumnName="Rate2Stars" />
-          <ScalarProperty Name="Rate1Star" ColumnName="Rate1Star" />
-          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="PawhubBDModel.User">
         <MappingFragment StoreEntitySet="Users">
@@ -271,5 +255,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="UserRates">
+      <EntityTypeMapping TypeName="PawhubBDModel.UserRate">
+        <MappingFragment StoreEntitySet="UserRates">
+          <ScalarProperty Name="RateDate" ColumnName="RateDate" />
+          <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -29,14 +29,11 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_PetRates_Pets", "Pet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.Pet), "PetRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.PetRate), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_PetRates_RateCategories", "RateCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.RateCategory), "PetRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.PetRate), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Pets_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "Pet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.Pet), true)]
-[assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserRates_Pets", "Pet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.Pet), "UserRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserRate), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Pictures_PicturesDetails", "PicturesDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.PicturesDetail), "Picture", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PetHub_Site.Models.Picture), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Pictures_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "Picture", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.Picture), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_WhoIsInPictures_Pictures", "Picture", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.Picture), "WhoIsInPicture", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.WhoIsInPicture), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Privacy_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "Privacy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PetHub_Site.Models.Privacy), true)]
-[assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserRates_RateCategories", "RateCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.RateCategory), "UserRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserRate), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserLog_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "UserLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserLog), true)]
-[assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserRates_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "UserRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserRate), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FollowingPets", "Pet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.Pet), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.User))]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FollowingUsers", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.User), "User1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.User))]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_PetProfiles_Breeds", "Breed", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PetHub_Site.Models.Breed), "PetProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.PetProfile), true)]
@@ -47,6 +44,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Profiles_Cities", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.City), "Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.Profile), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Profiles_Cities1", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.City), "Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.Profile), true)]
 [assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_Profiles_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PetHub_Site.Models.Profile), true)]
+[assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserRates_Pets", "Pet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.Pet), "UserRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserRate), true)]
+[assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserRates_RateCategories", "RateCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.RateCategory), "UserRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserRate), true)]
+[assembly: EdmRelationshipAttribute("PawhubBDModel", "FK_UserRates_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PetHub_Site.Models.User), "UserRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PetHub_Site.Models.UserRate), true)]
 
 #endregion
 
@@ -325,22 +325,6 @@ namespace PetHub_Site.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserRate> UserRates
-        {
-            get
-            {
-                if ((_UserRates == null))
-                {
-                    _UserRates = base.CreateObjectSet<UserRate>("UserRates");
-                }
-                return _UserRates;
-            }
-        }
-        private ObjectSet<UserRate> _UserRates;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<User> Users
         {
             get
@@ -417,6 +401,22 @@ namespace PetHub_Site.Models
             }
         }
         private ObjectSet<Profile> _Profiles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserRate> UserRates
+        {
+            get
+            {
+                if ((_UserRates == null))
+                {
+                    _UserRates = base.CreateObjectSet<UserRate>("UserRates");
+                }
+                return _UserRates;
+            }
+        }
+        private ObjectSet<UserRate> _UserRates;
 
         #endregion
 
@@ -535,14 +535,6 @@ namespace PetHub_Site.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserRates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserRates(UserRate userRate)
-        {
-            base.AddObject("UserRates", userRate);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUsers(User user)
@@ -580,6 +572,14 @@ namespace PetHub_Site.Models
         public void AddToProfiles(Profile profile)
         {
             base.AddObject("Profiles", profile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserRates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserRates(UserRate userRate)
+        {
+            base.AddObject("UserRates", userRate);
         }
 
         #endregion
@@ -1912,6 +1912,28 @@ namespace PetHub_Site.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PetProfile>("PawhubBDModel.FK_PetProfiles_Pets", "PetProfile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PawhubBDModel", "FK_UserRates_Pets", "UserRate")]
+        public EntityCollection<UserRate> UserRates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_Pets", "UserRate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_Pets", "UserRate", value);
                 }
             }
         }
@@ -4587,6 +4609,32 @@ namespace PetHub_Site.Models
         #endregion
 
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PawhubBDModel", "FK_UserRates_RateCategories", "UserRate")]
+        public EntityCollection<UserRate> UserRates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_RateCategories", "UserRate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_RateCategories", "UserRate", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -4958,28 +5006,6 @@ namespace PetHub_Site.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PawhubBDModel", "FK_UserRates_Users", "UserRate")]
-        public EntityCollection<UserRate> UserRates
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_Users", "UserRate");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_Users", "UserRate", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("PawhubBDModel", "FK_Nicknames_Users", "Nickname")]
         public Nickname Nickname
         {
@@ -5046,6 +5072,28 @@ namespace PetHub_Site.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Profile>("PawhubBDModel.FK_Profiles_Users", "Profile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PawhubBDModel", "FK_UserRates_Users", "UserRate")]
+        public EntityCollection<UserRate> UserRates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_Users", "UserRate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserRate>("PawhubBDModel.FK_UserRates_Users", "UserRate", value);
                 }
             }
         }
@@ -5250,25 +5298,15 @@ namespace PetHub_Site.Models
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="petId">Initial value of the PetId property.</param>
         /// <param name="rateCategoryId">Initial value of the RateCategoryId property.</param>
-        /// <param name="rate1Star">Initial value of the Rate1Star property.</param>
-        /// <param name="rate2Stars">Initial value of the Rate2Stars property.</param>
-        /// <param name="rate3Stars">Initial value of the Rate3Stars property.</param>
-        /// <param name="rate4Stars">Initial value of the Rate4Stars property.</param>
-        /// <param name="rate5Stars">Initial value of the Rate5Stars property.</param>
-        /// <param name="rating">Initial value of the Rating property.</param>
+        /// <param name="stars">Initial value of the Stars property.</param>
         /// <param name="rateDate">Initial value of the RateDate property.</param>
-        public static UserRate CreateUserRate(global::System.Guid userId, global::System.Guid petId, global::System.Int16 rateCategoryId, global::System.Int16 rate1Star, global::System.Int16 rate2Stars, global::System.Int16 rate3Stars, global::System.Int16 rate4Stars, global::System.Int16 rate5Stars, global::System.Double rating, global::System.DateTime rateDate)
+        public static UserRate CreateUserRate(global::System.Guid userId, global::System.Guid petId, global::System.Int16 rateCategoryId, global::System.Int16 stars, global::System.DateTime rateDate)
         {
             UserRate userRate = new UserRate();
             userRate.UserId = userId;
             userRate.PetId = petId;
             userRate.RateCategoryId = rateCategoryId;
-            userRate.Rate1Star = rate1Star;
-            userRate.Rate2Stars = rate2Stars;
-            userRate.Rate3Stars = rate3Stars;
-            userRate.Rate4Stars = rate4Stars;
-            userRate.Rate5Stars = rate5Stars;
-            userRate.Rating = rating;
+            userRate.Stars = stars;
             userRate.RateDate = rateDate;
             return userRate;
         }
@@ -5363,144 +5401,24 @@ namespace PetHub_Site.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Rate1Star
+        public global::System.Int16 Stars
         {
             get
             {
-                return _Rate1Star;
+                return _Stars;
             }
             set
             {
-                OnRate1StarChanging(value);
-                ReportPropertyChanging("Rate1Star");
-                _Rate1Star = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rate1Star");
-                OnRate1StarChanged();
+                OnStarsChanging(value);
+                ReportPropertyChanging("Stars");
+                _Stars = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Stars");
+                OnStarsChanged();
             }
         }
-        private global::System.Int16 _Rate1Star;
-        partial void OnRate1StarChanging(global::System.Int16 value);
-        partial void OnRate1StarChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 Rate2Stars
-        {
-            get
-            {
-                return _Rate2Stars;
-            }
-            set
-            {
-                OnRate2StarsChanging(value);
-                ReportPropertyChanging("Rate2Stars");
-                _Rate2Stars = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rate2Stars");
-                OnRate2StarsChanged();
-            }
-        }
-        private global::System.Int16 _Rate2Stars;
-        partial void OnRate2StarsChanging(global::System.Int16 value);
-        partial void OnRate2StarsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 Rate3Stars
-        {
-            get
-            {
-                return _Rate3Stars;
-            }
-            set
-            {
-                OnRate3StarsChanging(value);
-                ReportPropertyChanging("Rate3Stars");
-                _Rate3Stars = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rate3Stars");
-                OnRate3StarsChanged();
-            }
-        }
-        private global::System.Int16 _Rate3Stars;
-        partial void OnRate3StarsChanging(global::System.Int16 value);
-        partial void OnRate3StarsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 Rate4Stars
-        {
-            get
-            {
-                return _Rate4Stars;
-            }
-            set
-            {
-                OnRate4StarsChanging(value);
-                ReportPropertyChanging("Rate4Stars");
-                _Rate4Stars = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rate4Stars");
-                OnRate4StarsChanged();
-            }
-        }
-        private global::System.Int16 _Rate4Stars;
-        partial void OnRate4StarsChanging(global::System.Int16 value);
-        partial void OnRate4StarsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 Rate5Stars
-        {
-            get
-            {
-                return _Rate5Stars;
-            }
-            set
-            {
-                OnRate5StarsChanging(value);
-                ReportPropertyChanging("Rate5Stars");
-                _Rate5Stars = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rate5Stars");
-                OnRate5StarsChanged();
-            }
-        }
-        private global::System.Int16 _Rate5Stars;
-        partial void OnRate5StarsChanging(global::System.Int16 value);
-        partial void OnRate5StarsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Double Rating
-        {
-            get
-            {
-                return _Rating;
-            }
-            set
-            {
-                OnRatingChanging(value);
-                ReportPropertyChanging("Rating");
-                _Rating = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rating");
-                OnRatingChanged();
-            }
-        }
-        private global::System.Double _Rating;
-        partial void OnRatingChanging(global::System.Double value);
-        partial void OnRatingChanged();
+        private global::System.Int16 _Stars;
+        partial void OnStarsChanging(global::System.Int16 value);
+        partial void OnStarsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
