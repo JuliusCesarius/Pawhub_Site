@@ -25,6 +25,15 @@ namespace PetHub_Site.Services
             return topCategory.ToListOfDestination<TopRateCategoryVM>();
         }
 
+        //TODO:Borrar este método
+        public UserVM GetRandomUser()
+        {
+            var randomUser = ((PetMatchRepository)Repository).GetRandomUser();
+            var userVM = new UserVM();
+            Mapper.Map(randomUser, userVM);
+            return userVM;
+        }
+
         public IEnumerable<TopRateCategoryVM> RateMyPet(Guid PetId)
         {
             var topCategory = ((PetMatchRepository)Repository).GetTopCategories();
@@ -38,6 +47,10 @@ namespace PetHub_Site.Services
             {
                 foreach (var rating in Ratings)
                 {
+                    if (rating.RateCategoryId <= 0)
+                    {
+                        break;
+                    }
                     ((PetMatchRepository)Repository).Add(new UserRate
                     {
                         PetId = PetId,
@@ -78,7 +91,7 @@ namespace PetHub_Site.Services
                     {
                         ((PetMatchRepository)Repository).AddPetRate(petRate);
                     }
-                    Succeed = ((PetMatchRepository)Repository).Save();                    
+                    Succeed = ((PetMatchRepository)Repository).Save();
                 }
             }
             if (Succeed)
@@ -101,12 +114,12 @@ namespace PetHub_Site.Services
             }
             else
             {
-            //TODO:Validar y no devolver null
+                //TODO:Validar y no devolver null
                 return null;
             }
         }
 
-        protected override cabinet.patterns.interfaces.IRepository<Models.UserRate> Repository
+        protected override blastic.patterns.interfaces.IRepository<Models.UserRate> Repository
         {
             get
             {
@@ -116,6 +129,40 @@ namespace PetHub_Site.Services
                 }
                 return _repository;
             }
-        }        
+        }
+
+        internal IEnumerable<RateCategoryVM> GetRateCategories()
+        {
+            var rateCategories = ((PetMatchRepository)Repository).GetRateCategories();
+            return rateCategories.ToListOfDestination<RateCategoryVM>();
+        }
+
+        internal PetRateVM GetPetRateByCategory(short RateCategoryId, Guid PetId)
+        {
+            var petRate = ((PetMatchRepository)Repository).GetPetRateByCategory(RateCategoryId, PetId);
+            var petRateVM = Mapper.Map(petRate,new PetRateVM());
+            return petRateVM;
+        }
+        
+        internal PetRateBasicVM GetPetRate(Guid PetId, short CategoryId)
+        {
+            PetRate petRate = ((PetMatchRepository)Repository).GetPetRate(PetId, CategoryId);
+            if (petRate == null)
+            {
+                return null;
+            }
+            PetRateBasicVM petRateBasicVM = new PetRateBasicVM
+            {
+                Name = petRate.Pet.Name,
+                OwnerName = petRate.Pet.User.UserName,
+                PetId = petRate.PetId,
+                RateCategoryId = petRate.RateCategoryId,
+                RateName = petRate.RateCategory.Name,
+                UserId = petRate.Pet.UserId,
+                Rating = petRate.Rating,
+                Votes = (short)(petRate.Rate1Star + petRate.Rate2Stars + petRate.Rate3Stars + petRate.Rate4Stars + petRate.Rate5Stars)
+            };
+            return petRateBasicVM;
+        }
     }
 }

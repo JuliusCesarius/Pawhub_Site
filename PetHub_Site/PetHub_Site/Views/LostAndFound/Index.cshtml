@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PetHub_Site.Models.MongoDB.LostAndFound.Report>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            description
+        </th>
+        <th>
+            picture
+        </th>
+        <th>
+            linkedTo
+        </th>
+        <th>
+            reportCode
+        </th>
+        <th>
+            sharedCount
+        </th>
+        <th>
+            solved
+        </th>
+        <th>
+            viewBy
+        </th>
+        <th>
+            date
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.linkedTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reportCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sharedCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.solved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.viewBy2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item._id }) |
+            @Html.ActionLink("Details", "Details", new { id=item._id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item._id })
+        </td>
+    </tr>
+}
+
+</table>

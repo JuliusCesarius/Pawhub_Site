@@ -12,14 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Breeds">
-      <EntityTypeMapping TypeName="PawhubBDModel.Breed">
-        <MappingFragment StoreEntitySet="Breeds">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="BreedId" ColumnName="BreedId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Cities">
       <EntityTypeMapping TypeName="PawhubBDModel.City">
         <MappingFragment StoreEntitySet="Cities">
@@ -157,6 +149,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="PawhubBDModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="CurrentLocationLon" ColumnName="CurrentLocationLon" />
+          <ScalarProperty Name="CurrentLocationLat" ColumnName="CurrentLocationLat" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="Online" ColumnName="Online" />
           <ScalarProperty Name="Active" ColumnName="Active" />
@@ -198,6 +192,8 @@
     <EntitySetMapping Name="PetProfiles">
       <EntityTypeMapping TypeName="PawhubBDModel.PetProfile">
         <MappingFragment StoreEntitySet="PetProfiles">
+          <ScalarProperty Name="OtherBreeds" ColumnName="OtherBreeds" />
+          <ScalarProperty Name="KindId" ColumnName="KindId" />
           <ScalarProperty Name="CoverPic" ColumnName="CoverPic" />
           <ScalarProperty Name="Pedigree" ColumnName="Pedigree" />
           <ScalarProperty Name="BreedId" ColumnName="BreedId" />
@@ -205,7 +201,6 @@
           <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
           <ScalarProperty Name="LiveIn" ColumnName="LiveIn" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="Neatured" ColumnName="Neatured" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
@@ -221,23 +216,6 @@
         <MappingFragment StoreEntitySet="Nicknames">
           <ScalarProperty Name="Privacy" ColumnName="Privacy" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Profiles">
-      <EntityTypeMapping TypeName="PawhubBDModel.Profile">
-        <MappingFragment StoreEntitySet="Profiles">
-          <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
-          <ScalarProperty Name="LivesIn" ColumnName="LivesIn" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -263,6 +241,54 @@
           <ScalarProperty Name="RateCategoryId" ColumnName="RateCategoryId" />
           <ScalarProperty Name="PetId" ColumnName="PetId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Breeds">
+      <EntityTypeMapping TypeName="PawhubBDModel.Breed">
+        <MappingFragment StoreEntitySet="Breeds">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="KindId" ColumnName="KindId" />
+          <ScalarProperty Name="BreedId" ColumnName="BreedId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kinds">
+      <EntityTypeMapping TypeName="PawhubBDModel.Kind">
+        <MappingFragment StoreEntitySet="Kinds">
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="KindId" ColumnName="KindId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="PawhubBDModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
+          <ScalarProperty Name="LivesIn" ColumnName="LivesIn" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preregistroes">
+      <EntityTypeMapping TypeName="PawhubBDModel.Preregistro">
+        <MappingFragment StoreEntitySet="Preregistro">
+          <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RegistroId" ColumnName="RegistroId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

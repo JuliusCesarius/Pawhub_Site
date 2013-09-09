@@ -13,6 +13,7 @@
           <EntitySet Name="FollowingPets" EntityType="PawhubBDModel.Store.FollowingPets" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FollowingUsers" EntityType="PawhubBDModel.Store.FollowingUsers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Friendships" EntityType="PawhubBDModel.Store.Friendships" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Kinds" EntityType="PawhubBDModel.Store.Kinds" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Nicknames" EntityType="PawhubBDModel.Store.Nicknames" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PetCounters" EntityType="PawhubBDModel.Store.PetCounters" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PetOwnerHistory" EntityType="PawhubBDModel.Store.PetOwnerHistory" store:Type="Tables" Schema="dbo" />
@@ -21,6 +22,7 @@
           <EntitySet Name="Pets" EntityType="PawhubBDModel.Store.Pets" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Pictures" EntityType="PawhubBDModel.Store.Pictures" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PicturesDetails" EntityType="PawhubBDModel.Store.PicturesDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Preregistro" EntityType="PawhubBDModel.Store.Preregistro" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Privacy" EntityType="PawhubBDModel.Store.Privacy" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Profiles" EntityType="PawhubBDModel.Store.Profiles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RateCategories" EntityType="PawhubBDModel.Store.RateCategories" store:Type="Tables" Schema="dbo" />
@@ -31,6 +33,10 @@
           <AssociationSet Name="FK_Albums_Users" Association="PawhubBDModel.Store.FK_Albums_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Breeds_Kinds" Association="PawhubBDModel.Store.FK_Breeds_Kinds">
+            <End Role="Kinds" EntitySet="Kinds" />
+            <End Role="Breeds" EntitySet="Breeds" />
           </AssociationSet>
           <AssociationSet Name="FK_Cities_Countries" Association="PawhubBDModel.Store.FK_Cities_Countries">
             <End Role="Countries" EntitySet="Countries" />
@@ -78,6 +84,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_PetProfiles_Cities1" Association="PawhubBDModel.Store.FK_PetProfiles_Cities1">
             <End Role="Cities" EntitySet="Cities" />
+            <End Role="PetProfiles" EntitySet="PetProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PetProfiles_Kinds" Association="PawhubBDModel.Store.FK_PetProfiles_Kinds">
+            <End Role="Kinds" EntitySet="Kinds" />
             <End Role="PetProfiles" EntitySet="PetProfiles" />
           </AssociationSet>
           <AssociationSet Name="FK_PetProfiles_Pets" Association="PawhubBDModel.Store.FK_PetProfiles_Pets">
@@ -164,6 +174,7 @@
             <PropertyRef Name="BreedId" />
           </Key>
           <Property Name="BreedId" Type="smallint" Nullable="false" />
+          <Property Name="KindId" Type="smallint" Nullable="false" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="80" />
         </EntityType>
         <EntityType Name="Cities">
@@ -209,6 +220,14 @@
           <Property Name="ApprovalDate" Type="datetime" />
           <Property Name="IsPet" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Kinds">
+          <Key>
+            <PropertyRef Name="KindId" />
+          </Key>
+          <Property Name="KindId" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Pic" Type="varchar" Nullable="false" MaxLength="300" />
+        </EntityType>
         <EntityType Name="Nicknames">
           <Key>
             <PropertyRef Name="UserId" />
@@ -250,7 +269,7 @@
           <Property Name="DOB" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
           <Property Name="Neatured" Type="bit" />
           <Property Name="Sex" Type="bit" Nullable="false" />
-          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="KindId" Type="smallint" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="200" />
           <Property Name="LiveIn" Type="int" />
           <Property Name="WasBornIn" Type="int" />
@@ -258,6 +277,7 @@
           <Property Name="BreedId" Type="smallint" />
           <Property Name="Pedigree" Type="varchar" MaxLength="100" />
           <Property Name="CoverPic" Type="varchar" MaxLength="255" />
+          <Property Name="OtherBreeds" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="PetRates">
           <Key>
@@ -305,6 +325,16 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="AlbumId" Type="smallint" Nullable="false" />
         </EntityType>
+        <EntityType Name="Preregistro">
+          <Key>
+            <PropertyRef Name="RegistroId" />
+          </Key>
+          <Property Name="RegistroId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="100" />
+          <Property Name="UserCity" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Privacy">
           <Key>
             <PropertyRef Name="UserId" />
@@ -328,8 +358,10 @@
           <Property Name="Phone" Type="varchar" MaxLength="45" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Picture" Type="varchar" MaxLength="255" />
-          <Property Name="LivesIn" Type="int" Nullable="false" />
-          <Property Name="WasBornIn" Type="int" Nullable="false" />
+          <Property Name="LivesIn" Type="int" />
+          <Property Name="WasBornIn" Type="int" />
+          <Property Name="ZIP" Type="nchar" MaxLength="10" />
+          <Property Name="Neighborhood" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="RateCategories">
           <Key>
@@ -374,6 +406,8 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Online" Type="bit" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CurrentLocationLat" Type="nchar" MaxLength="10" />
+          <Property Name="CurrentLocationLon" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="WhoIsInPictures">
           <Key>
@@ -394,6 +428,18 @@
             </Principal>
             <Dependent Role="Albums">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Breeds_Kinds">
+          <End Role="Kinds" Type="PawhubBDModel.Store.Kinds" Multiplicity="1" />
+          <End Role="Breeds" Type="PawhubBDModel.Store.Breeds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kinds">
+              <PropertyRef Name="KindId" />
+            </Principal>
+            <Dependent Role="Breeds">
+              <PropertyRef Name="KindId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -541,6 +587,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PetProfiles_Kinds">
+          <End Role="Kinds" Type="PawhubBDModel.Store.Kinds" Multiplicity="1" />
+          <End Role="PetProfiles" Type="PawhubBDModel.Store.PetProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kinds">
+              <PropertyRef Name="KindId" />
+            </Principal>
+            <Dependent Role="PetProfiles">
+              <PropertyRef Name="KindId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PetProfiles_Pets">
           <End Role="Pets" Type="PawhubBDModel.Store.Pets" Multiplicity="1" />
           <End Role="PetProfiles" Type="PawhubBDModel.Store.PetProfiles" Multiplicity="0..1" />
@@ -650,7 +708,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Profiles_Cities">
-          <End Role="Cities" Type="PawhubBDModel.Store.Cities" Multiplicity="1" />
+          <End Role="Cities" Type="PawhubBDModel.Store.Cities" Multiplicity="0..1" />
           <End Role="Profiles" Type="PawhubBDModel.Store.Profiles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
@@ -662,7 +720,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Profiles_Cities1">
-          <End Role="Cities" Type="PawhubBDModel.Store.Cities" Multiplicity="1" />
+          <End Role="Cities" Type="PawhubBDModel.Store.Cities" Multiplicity="0..1" />
           <End Role="Profiles" Type="PawhubBDModel.Store.Profiles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
@@ -752,7 +810,6 @@
       <Schema Namespace="PawhubBDModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="PawhubBDEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Albums" EntityType="PawhubBDModel.Album" />
-          <EntitySet Name="Breeds" EntityType="PawhubBDModel.Breed" />
           <EntitySet Name="Cities" EntityType="PawhubBDModel.City" />
           <EntitySet Name="Countries" EntityType="PawhubBDModel.Country" />
           <EntitySet Name="Friendships" EntityType="PawhubBDModel.Friendship" />
@@ -836,10 +893,6 @@
             <End Role="User1" EntitySet="Users" />
           </AssociationSet>
           <EntitySet Name="PetProfiles" EntityType="PawhubBDModel.PetProfile" />
-          <AssociationSet Name="FK_PetProfiles_Breeds" Association="PawhubBDModel.FK_PetProfiles_Breeds">
-            <End Role="Breed" EntitySet="Breeds" />
-            <End Role="PetProfile" EntitySet="PetProfiles" />
-          </AssociationSet>
           <AssociationSet Name="FK_PetProfiles_Cities" Association="PawhubBDModel.FK_PetProfiles_Cities">
             <End Role="City" EntitySet="Cities" />
             <End Role="PetProfile" EntitySet="PetProfiles" />
@@ -857,19 +910,6 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Nickname" EntitySet="Nicknames" />
           </AssociationSet>
-          <EntitySet Name="Profiles" EntityType="PawhubBDModel.Profile" />
-          <AssociationSet Name="FK_Profiles_Cities" Association="PawhubBDModel.FK_Profiles_Cities">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="Profile" EntitySet="Profiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Profiles_Cities1" Association="PawhubBDModel.FK_Profiles_Cities1">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="Profile" EntitySet="Profiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Profiles_Users" Association="PawhubBDModel.FK_Profiles_Users">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Profile" EntitySet="Profiles" />
-          </AssociationSet>
           <FunctionImport Name="LoadTopRateCategory" ReturnType="Collection(PawhubBDModel.TopRateCategory)" />
           <EntitySet Name="UserRates" EntityType="PawhubBDModel.UserRate" />
           <AssociationSet Name="FK_UserRates_Pets" Association="PawhubBDModel.FK_UserRates_Pets">
@@ -884,6 +924,34 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserRate" EntitySet="UserRates" />
           </AssociationSet>
+          <EntitySet Name="Breeds" EntityType="PawhubBDModel.Breed" />
+          <EntitySet Name="Kinds" EntityType="PawhubBDModel.Kind" />
+          <AssociationSet Name="FK_Breeds_Kinds" Association="PawhubBDModel.FK_Breeds_Kinds">
+            <End Role="Kind" EntitySet="Kinds" />
+            <End Role="Breed" EntitySet="Breeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PetProfiles_Breeds" Association="PawhubBDModel.FK_PetProfiles_Breeds">
+            <End Role="Breed" EntitySet="Breeds" />
+            <End Role="PetProfile" EntitySet="PetProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PetProfiles_Kinds" Association="PawhubBDModel.FK_PetProfiles_Kinds">
+            <End Role="Kind" EntitySet="Kinds" />
+            <End Role="PetProfile" EntitySet="PetProfiles" />
+          </AssociationSet>
+          <EntitySet Name="Profiles" EntityType="PawhubBDModel.Profile" />
+          <AssociationSet Name="FK_Profiles_Cities" Association="PawhubBDModel.FK_Profiles_Cities">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profiles_Cities1" Association="PawhubBDModel.FK_Profiles_Cities1">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profiles_Users" Association="PawhubBDModel.FK_Profiles_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <EntitySet Name="Preregistroes" EntityType="PawhubBDModel.Preregistro" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -895,14 +963,6 @@
           <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="Privacy" Nullable="false" />
           <NavigationProperty Name="User" Relationship="PawhubBDModel.FK_Albums_Users" FromRole="Album" ToRole="User" />
-        </EntityType>
-        <EntityType Name="Breed">
-          <Key>
-            <PropertyRef Name="BreedId" />
-          </Key>
-          <Property Type="Int16" Name="BreedId" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PetProfiles" Relationship="PawhubBDModel.FK_PetProfiles_Breeds" FromRole="Breed" ToRole="PetProfile" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -1064,13 +1124,15 @@
           <Property Type="Boolean" Name="Online" Nullable="false" />
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
           <NavigationProperty Name="Albums" Relationship="PawhubBDModel.FK_Albums_Users" FromRole="User" ToRole="Album" />
-          <NavigationProperty Name="Pets" Relationship="PawhubBDModel.FK_Pets_Users" FromRole="User" ToRole="Pet" />
+          <NavigationProperty Name="Pets" Relationship="PawhubBDModel.FK_Pets_Users" FromRole="User" ToRole="Pet" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
           <NavigationProperty Name="Pictures" Relationship="PawhubBDModel.FK_Pictures_Users" FromRole="User" ToRole="Picture" />
           <NavigationProperty Name="Privacy" Relationship="PawhubBDModel.FK_Privacy_Users" FromRole="User" ToRole="Privacy" />
           <NavigationProperty Name="UserLogs" Relationship="PawhubBDModel.FK_UserLog_Users" FromRole="User" ToRole="UserLog" />
           <NavigationProperty Name="Nickname" Relationship="PawhubBDModel.FK_Nicknames_Users" FromRole="User" ToRole="Nickname" />
-          <NavigationProperty Name="Profile" Relationship="PawhubBDModel.FK_Profiles_Users" FromRole="User" ToRole="Profile" />
           <NavigationProperty Name="UserRates" Relationship="PawhubBDModel.FK_UserRates_Users" FromRole="User" ToRole="UserRate" />
+          <NavigationProperty Name="Profile" Relationship="PawhubBDModel.FK_Profiles_Users" FromRole="User" ToRole="Profile" />
+          <Property Type="String" Name="CurrentLocationLat" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="CurrentLocationLon" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="WhoIsInPicture">
           <Key>
@@ -1282,7 +1344,6 @@
           <Property Name="DOB" Nullable="false" annotation:StoreGeneratedPattern="Computed" Type="DateTime" />
           <Property Type="Boolean" Name="Neatured" />
           <Property Type="Boolean" Name="Sex" Nullable="false" />
-          <Property Type="Int16" Name="Type" Nullable="false" />
           <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="LiveIn" />
           <Property Type="Int32" Name="WasBornIn" />
@@ -1290,23 +1351,14 @@
           <Property Type="Int16" Name="BreedId" />
           <Property Type="String" Name="Pedigree" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CoverPic" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Breed" Relationship="PawhubBDModel.FK_PetProfiles_Breeds" FromRole="PetProfile" ToRole="Breed" />
           <NavigationProperty Name="LiveInCity" Relationship="PawhubBDModel.FK_PetProfiles_Cities" FromRole="PetProfile" ToRole="City" />
           <NavigationProperty Name="WasBornInCity" Relationship="PawhubBDModel.FK_PetProfiles_Cities1" FromRole="PetProfile" ToRole="City" />
           <NavigationProperty Name="Pet" Relationship="PawhubBDModel.FK_PetProfiles_Pets" FromRole="PetProfile" ToRole="Pet" />
+          <Property Type="Int16" Name="KindId" Nullable="false" />
+          <NavigationProperty Name="Breed" Relationship="PawhubBDModel.FK_PetProfiles_Breeds" FromRole="PetProfile" ToRole="Breed" />
+          <NavigationProperty Name="Kind" Relationship="PawhubBDModel.FK_PetProfiles_Kinds" FromRole="PetProfile" ToRole="Kind" />
+          <Property Type="String" Name="OtherBreeds" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
-        <Association Name="FK_PetProfiles_Breeds">
-          <End Type="PawhubBDModel.Breed" Role="Breed" Multiplicity="0..1" />
-          <End Type="PawhubBDModel.PetProfile" Role="PetProfile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Breed">
-              <PropertyRef Name="BreedId" />
-            </Principal>
-            <Dependent Role="PetProfile">
-              <PropertyRef Name="BreedId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PetProfiles_Cities">
           <End Type="PawhubBDModel.City" Role="City" Multiplicity="0..1" />
           <End Type="PawhubBDModel.PetProfile" Role="PetProfile" Multiplicity="*" />
@@ -1360,61 +1412,6 @@
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Nickname">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Profile">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Type="Guid" Name="UserId" Nullable="false" />
-          <Property Type="Int16" Name="Privacy" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DOB" />
-          <Property Type="String" Name="AboutMe" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Phone" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
-          <Property Type="String" Name="Picture" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="LivesIn" Nullable="false" />
-          <Property Type="Int32" Name="WasBornIn" Nullable="false" />
-          <NavigationProperty Name="LivesInCity" Relationship="PawhubBDModel.FK_Profiles_Cities" FromRole="Profile" ToRole="City" />
-          <NavigationProperty Name="WasBornInCity" Relationship="PawhubBDModel.FK_Profiles_Cities1" FromRole="Profile" ToRole="City" />
-          <NavigationProperty Name="User" Relationship="PawhubBDModel.FK_Profiles_Users" FromRole="Profile" ToRole="User" />
-        </EntityType>
-        <Association Name="FK_Profiles_Cities">
-          <End Type="PawhubBDModel.City" Role="City" Multiplicity="1" />
-          <End Type="PawhubBDModel.Profile" Role="Profile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="Profile">
-              <PropertyRef Name="LivesIn" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Profiles_Cities1">
-          <End Type="PawhubBDModel.City" Role="City" Multiplicity="1" />
-          <End Type="PawhubBDModel.Profile" Role="Profile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="Profile">
-              <PropertyRef Name="WasBornIn" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Profiles_Users">
-          <End Type="PawhubBDModel.User" Role="User" Multiplicity="1" />
-          <End Type="PawhubBDModel.Profile" Role="Profile" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Profile">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1479,6 +1476,129 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Breed">
+          <Key>
+            <PropertyRef Name="BreedId" />
+          </Key>
+          <Property Type="Int16" Name="BreedId" Nullable="false" />
+          <Property Type="Int16" Name="KindId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kind" Relationship="PawhubBDModel.FK_Breeds_Kinds" FromRole="Breed" ToRole="Kind" />
+          <NavigationProperty Name="PetProfiles" Relationship="PawhubBDModel.FK_PetProfiles_Breeds" FromRole="Breed" ToRole="PetProfile" />
+        </EntityType>
+        <EntityType Name="Kind">
+          <Key>
+            <PropertyRef Name="KindId" />
+          </Key>
+          <Property Type="Int16" Name="KindId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Pic" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Breeds" Relationship="PawhubBDModel.FK_Breeds_Kinds" FromRole="Kind" ToRole="Breed" />
+          <NavigationProperty Name="PetProfiles" Relationship="PawhubBDModel.FK_PetProfiles_Kinds" FromRole="Kind" ToRole="PetProfile" />
+        </EntityType>
+        <Association Name="FK_Breeds_Kinds">
+          <End Type="PawhubBDModel.Kind" Role="Kind" Multiplicity="1" />
+          <End Type="PawhubBDModel.Breed" Role="Breed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="KindId" />
+            </Principal>
+            <Dependent Role="Breed">
+              <PropertyRef Name="KindId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PetProfiles_Breeds">
+          <End Type="PawhubBDModel.Breed" Role="Breed" Multiplicity="0..1" />
+          <End Type="PawhubBDModel.PetProfile" Role="PetProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Breed">
+              <PropertyRef Name="BreedId" />
+            </Principal>
+            <Dependent Role="PetProfile">
+              <PropertyRef Name="BreedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PetProfiles_Kinds">
+          <End Type="PawhubBDModel.Kind" Role="Kind" Multiplicity="1" />
+          <End Type="PawhubBDModel.PetProfile" Role="PetProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="KindId" />
+            </Principal>
+            <Dependent Role="PetProfile">
+              <PropertyRef Name="KindId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int16" Name="Privacy" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DOB" />
+          <Property Type="String" Name="AboutMe" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="String" Name="Picture" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="LivesIn" />
+          <Property Type="Int32" Name="WasBornIn" />
+          <NavigationProperty Name="LivesInCity" Relationship="PawhubBDModel.FK_Profiles_Cities" FromRole="Profile" ToRole="City" />
+          <NavigationProperty Name="WasBornInCity" Relationship="PawhubBDModel.FK_Profiles_Cities1" FromRole="Profile" ToRole="City" />
+          <NavigationProperty Name="User" Relationship="PawhubBDModel.FK_Profiles_Users" FromRole="Profile" ToRole="User" />
+          <Property Type="String" Name="ZIP" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Neighborhood" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Profiles_Cities">
+          <End Type="PawhubBDModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="PawhubBDModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="LivesIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profiles_Cities1">
+          <End Type="PawhubBDModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="PawhubBDModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="WasBornIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profiles_Users">
+          <End Type="PawhubBDModel.User" Role="User" Multiplicity="1" />
+          <End Type="PawhubBDModel.Profile" Role="Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Preregistro">
+          <Key>
+            <PropertyRef Name="RegistroId" />
+          </Key>
+          <Property Type="Int32" Name="RegistroId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UserEmail" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UserCity" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1493,14 +1613,6 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Breeds">
-            <EntityTypeMapping TypeName="PawhubBDModel.Breed">
-              <MappingFragment StoreEntitySet="Breeds">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="BreedId" ColumnName="BreedId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1641,6 +1753,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="PawhubBDModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="CurrentLocationLon" ColumnName="CurrentLocationLon" />
+                <ScalarProperty Name="CurrentLocationLat" ColumnName="CurrentLocationLat" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="Online" ColumnName="Online" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
@@ -1682,6 +1796,8 @@
           <EntitySetMapping Name="PetProfiles">
             <EntityTypeMapping TypeName="PawhubBDModel.PetProfile">
               <MappingFragment StoreEntitySet="PetProfiles">
+                <ScalarProperty Name="OtherBreeds" ColumnName="OtherBreeds" />
+                <ScalarProperty Name="KindId" ColumnName="KindId" />
                 <ScalarProperty Name="CoverPic" ColumnName="CoverPic" />
                 <ScalarProperty Name="Pedigree" ColumnName="Pedigree" />
                 <ScalarProperty Name="BreedId" ColumnName="BreedId" />
@@ -1689,7 +1805,6 @@
                 <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
                 <ScalarProperty Name="LiveIn" ColumnName="LiveIn" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="Neatured" ColumnName="Neatured" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
@@ -1705,23 +1820,6 @@
               <MappingFragment StoreEntitySet="Nicknames">
                 <ScalarProperty Name="Privacy" ColumnName="Privacy" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Profiles">
-            <EntityTypeMapping TypeName="PawhubBDModel.Profile">
-              <MappingFragment StoreEntitySet="Profiles">
-                <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
-                <ScalarProperty Name="LivesIn" ColumnName="LivesIn" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Privacy" ColumnName="Privacy" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1750,6 +1848,54 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Breeds">
+            <EntityTypeMapping TypeName="PawhubBDModel.Breed">
+              <MappingFragment StoreEntitySet="Breeds">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KindId" ColumnName="KindId" />
+                <ScalarProperty Name="BreedId" ColumnName="BreedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kinds">
+            <EntityTypeMapping TypeName="PawhubBDModel.Kind">
+              <MappingFragment StoreEntitySet="Kinds">
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KindId" ColumnName="KindId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="PawhubBDModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="WasBornIn" ColumnName="WasBornIn" />
+                <ScalarProperty Name="LivesIn" ColumnName="LivesIn" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Preregistroes">
+            <EntityTypeMapping TypeName="PawhubBDModel.Preregistro">
+              <MappingFragment StoreEntitySet="Preregistro">
+                <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="RegistroId" ColumnName="RegistroId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1772,7 +1918,6 @@
     <Diagrams>
       <Diagram Name="PawhubBD" ZoomLevel="81">
         <EntityTypeShape EntityType="PawhubBDModel.Album" Width="1.5" PointX="2.5" PointY="14" Height="2.1725878906250031" />
-        <EntityTypeShape EntityType="PawhubBDModel.Breed" Width="1.5" PointX="13.75" PointY="6.5" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="PawhubBDModel.City" Width="1.5" PointX="10.75" PointY="2.375" Height="1.787985026041667" />
         <EntityTypeShape EntityType="PawhubBDModel.Country" Width="1.5" PointX="12.625" PointY="2.875" Height="1.595683593749996" />
         <EntityTypeShape EntityType="PawhubBDModel.Friendship" Width="1.5" PointX="0.5" PointY="5.625" Height="2.3648893229166665" />
@@ -1788,8 +1933,8 @@
         <EntityTypeShape EntityType="PawhubBDModel.User" Width="1.5" PointX="4.5" PointY="4.125" Height="4.0956022135416656" />
         <EntityTypeShape EntityType="PawhubBDModel.WhoIsInPicture" Width="1.5" PointX="0.625" PointY="13.875" Height="2.172587890624996" />
         <AssociationConnector Association="PawhubBDModel.FK_Albums_Users" >
-          <ConnectorPoint PointX="4.744141250030518" PointY="8.2206022135416656" />
-          <ConnectorPoint PointX="4.744141250030518" PointY="15.086293945312502" />
+          <ConnectorPoint PointX="4.8312989062538145" PointY="8.605205078125" />
+          <ConnectorPoint PointX="4.8312989062538145" PointY="15.086293945312502" />
           <ConnectorPoint PointX="4" PointY="15.086293945312502" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_PicturesDetails_Albums" >
@@ -1801,24 +1946,24 @@
           <ConnectorPoint PointX="12.25" PointY="3.672841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Friendships_Users" >
-          <ConnectorPoint PointX="4.5" PointY="6.6052874502841048" />
-          <ConnectorPoint PointX="2" PointY="6.6052874502841048" />
+          <ConnectorPoint PointX="4.5" PointY="6.6052864738325647" />
+          <ConnectorPoint PointX="2" PointY="6.6052864738325647" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Friendships_Users1" >
-          <ConnectorPoint PointX="4.5" PointY="7.3600883866003866" />
-          <ConnectorPoint PointX="2" PointY="7.3600883866003866" />
+          <ConnectorPoint PointX="4.5" PointY="7.3600878983746156" />
+          <ConnectorPoint PointX="2" PointY="7.3600878983746156" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Pets_PetCounters" >
-          <ConnectorPoint PointX="8.375" PointY="10.5" />
-          <ConnectorPoint PointX="8.375" PointY="4.1523848123406673" />
-          <ConnectorPoint PointX="8.625" PointY="4.1523848123406673" />
+          <ConnectorPoint PointX="8.25" PointY="10.5" />
+          <ConnectorPoint PointX="8.25" PointY="4.125000625" />
+          <ConnectorPoint PointX="8.625" PointY="4.125000625" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_PetOwnerHistory_Pets" >
           <ConnectorPoint PointX="8.625" PointY="3.4999999999999996" />
-          <ConnectorPoint PointX="7.7630227083333327" PointY="3.4999999999999991" />
-          <ConnectorPoint PointX="7.5963560416666667" PointY="3.4999999999999996" />
-          <ConnectorPoint PointX="7.2552070833333326" PointY="3.4999999999999991" />
-          <ConnectorPoint PointX="7.0885404166666666" PointY="3.4999999999999996" />
+          <ConnectorPoint PointX="7.4876319270833331" PointY="3.4999999999999991" />
+          <ConnectorPoint PointX="7.3209652604166671" PointY="3.4999999999999996" />
+          <ConnectorPoint PointX="6.9544255208333334" PointY="3.4999999999999991" />
+          <ConnectorPoint PointX="6.7877588541666674" PointY="3.4999999999999996" />
           <ConnectorPoint PointX="4.25" PointY="3.4999999999999996" />
           <ConnectorPoint PointX="4.25" PointY="2.922587890624996" />
         </AssociationConnector>
@@ -1833,24 +1978,26 @@
           <ConnectorPoint PointX="10.375" PointY="10.663198242187505" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Pets_Users" >
-          <ConnectorPoint PointX="6" PointY="4.7930098123406673" />
-          <ConnectorPoint PointX="7.0885404166666666" PointY="4.7930098123406664" />
-          <ConnectorPoint PointX="7.2552070833333326" PointY="4.7930098123406673" />
-          <ConnectorPoint PointX="7.5963560416666667" PointY="4.7930098123406664" />
-          <ConnectorPoint PointX="7.7630227083333327" PointY="4.7930098123406673" />
-          <ConnectorPoint PointX="8.2916666666666661" PointY="4.7930098123406664" />
-          <ConnectorPoint PointX="8.4583333333333339" PointY="4.7930098123406673" />
-          <ConnectorPoint PointX="8.625" PointY="4.7930098123406673" />
+          <ConnectorPoint PointX="6" PointY="4.4960942187500006" />
+          <ConnectorPoint PointX="6.7877588541666674" PointY="4.49609421875" />
+          <ConnectorPoint PointX="6.9544255208333334" PointY="4.4960942187500006" />
+          <ConnectorPoint PointX="7.3209652604166671" PointY="4.49609421875" />
+          <ConnectorPoint PointX="7.4876319270833331" PointY="4.4960942187500006" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="4.49609421875" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="4.4960942187500006" />
+          <ConnectorPoint PointX="8.625" PointY="4.4960942187500006" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Pictures_PicturesDetails" >
           <ConnectorPoint PointX="2.5" PointY="11.744944661458334" />
           <ConnectorPoint PointX="2" PointY="11.744944661458334" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Pictures_Users" >
-          <ConnectorPoint PointX="4.9970731250152589" PointY="8.2206022135416656" />
-          <ConnectorPoint PointX="4.9970731250152589" PointY="10.40625" />
-          <ConnectorPoint PointX="4.827474583363851" PointY="10.406249999999998" />
-          <ConnectorPoint PointX="4.5074847916819261" PointY="10.40625" />
+          <ConnectorPoint PointX="5.0406519531269076" PointY="8.605205078125" />
+          <ConnectorPoint PointX="5.0406519531269076" PointY="10.40625" />
+          <ConnectorPoint PointX="4.9146322395871476" PointY="10.40625" />
+          <ConnectorPoint PointX="4.7479655729204815" PointY="10.40625" />
+          <ConnectorPoint PointX="4.7177302864602408" PointY="10.40625" />
+          <ConnectorPoint PointX="4.5510636197935748" PointY="10.40625" />
           <ConnectorPoint PointX="2" PointY="10.40625" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_WhoIsInPictures_Pictures" >
@@ -1858,27 +2005,22 @@
           <ConnectorPoint PointX="1.3125" PointY="13.875" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_Privacy_Users" >
-          <ConnectorPoint PointX="5.7484744824638367" PointY="8.2206022135416656" />
-          <ConnectorPoint PointX="5.7484744824638367" PointY="10.625" />
+          <ConnectorPoint PointX="5.7599104899620412" PointY="8.605205078125" />
+          <ConnectorPoint PointX="5.7599104899620412" PointY="10.625" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_UserLog_Users" >
-          <ConnectorPoint PointX="5.3727738037395483" PointY="8.2206022135416656" />
-          <ConnectorPoint PointX="5.3727738037395483" PointY="8.9901432291666623" />
-          <ConnectorPoint PointX="5.0804064583485919" PointY="8.9901432291666623" />
-          <ConnectorPoint PointX="4.9137397916819259" PointY="8.9901432291666623" />
-          <ConnectorPoint PointX="4.827474583363851" PointY="8.99014322916666" />
-          <ConnectorPoint PointX="4.5074847916819261" PointY="8.9901432291666623" />
-          <ConnectorPoint PointX="4.25" PointY="8.9901432291666623" />
+          <ConnectorPoint PointX="4.5" PointY="8.3026025390625" />
+          <ConnectorPoint PointX="4.25" PointY="8.3026025390625" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FollowingPets" >
-          <ConnectorPoint PointX="8.625" PointY="5.4277549061703336" />
-          <ConnectorPoint PointX="8.4583333333333339" PointY="5.4277549061703327" />
-          <ConnectorPoint PointX="8.2916666666666661" PointY="5.4277549061703336" />
-          <ConnectorPoint PointX="7.7630227083333327" PointY="5.4277549061703327" />
-          <ConnectorPoint PointX="7.5963560416666667" PointY="5.4277549061703336" />
-          <ConnectorPoint PointX="7.2552070833333326" PointY="5.4277549061703327" />
-          <ConnectorPoint PointX="7.0885404166666666" PointY="5.4277549061703336" />
-          <ConnectorPoint PointX="6" PointY="5.4277549061703336" />
+          <ConnectorPoint PointX="8.625" PointY="4.7456438932291718" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="4.7456438932291709" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="4.7456438932291718" />
+          <ConnectorPoint PointX="7.4876319270833331" PointY="4.7456438932291709" />
+          <ConnectorPoint PointX="7.3209652604166671" PointY="4.7456438932291718" />
+          <ConnectorPoint PointX="6.9544255208333334" PointY="4.7456438932291709" />
+          <ConnectorPoint PointX="6.7877588541666674" PointY="4.7456438932291718" />
+          <ConnectorPoint PointX="6" PointY="4.7456438932291718" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FollowingUsers" >
           <ConnectorPoint PointX="5.0319230769230767" PointY="4.125" />
@@ -1886,44 +2028,25 @@
           <ConnectorPoint PointX="5.4784615384615378" PointY="3.875" />
           <ConnectorPoint PointX="5.4784615384615378" PointY="4.125" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="PawhubBDModel.PetProfile" Width="1.5" PointX="11.5" PointY="5.375" Height="4.6725065104166674" />
-        <AssociationConnector Association="PawhubBDModel.FK_PetProfiles_Breeds" >
-          <ConnectorPoint PointX="13.75" PointY="7.297841796875" />
-          <ConnectorPoint PointX="13" PointY="7.297841796875" />
-        </AssociationConnector>
+        <EntityTypeShape EntityType="PawhubBDModel.PetProfile" Width="1.5" PointX="11.5" PointY="5.125" Height="5.057109375" />
         <AssociationConnector Association="PawhubBDModel.FK_PetProfiles_Cities" >
-          <ConnectorPoint PointX="11.71875" PointY="4.547587890625" />
-          <ConnectorPoint PointX="11.71875" PointY="5.375" />
+          <ConnectorPoint PointX="11.875" PointY="4.547587890625" />
+          <ConnectorPoint PointX="11.875" PointY="5.125" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_PetProfiles_Cities1" >
-          <ConnectorPoint PointX="12.046875" PointY="4.547587890625" />
-          <ConnectorPoint PointX="12.046875" PointY="5.375" />
+          <ConnectorPoint PointX="12.125" PointY="4.547587890625" />
+          <ConnectorPoint PointX="12.125" PointY="5.125" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_PetProfiles_Pets" >
-          <ConnectorPoint PointX="10.125" PointY="5.8170475260416659" />
-          <ConnectorPoint PointX="10.479166666666666" PointY="5.817047526041665" />
-          <ConnectorPoint PointX="10.645833333333334" PointY="5.8170475260416659" />
-          <ConnectorPoint PointX="11.5" PointY="5.8170475260416659" />
+          <ConnectorPoint PointX="10.125" PointY="5.7832051302083318" />
+          <ConnectorPoint PointX="10.479166666666666" PointY="5.7832051302083309" />
+          <ConnectorPoint PointX="10.645833333333334" PointY="5.7832051302083318" />
+          <ConnectorPoint PointX="11.5" PointY="5.7832051302083318" />
         </AssociationConnector>
         <EntityTypeShape EntityType="PawhubBDModel.Nickname" Width="1.5" PointX="2.5" PointY="4.125" Height="1.7879850260416674" />
         <AssociationConnector Association="PawhubBDModel.FK_Nicknames_Users" >
           <ConnectorPoint PointX="4.5" PointY="5.0189925130208337" />
           <ConnectorPoint PointX="4" PointY="5.0189925130208337" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="PawhubBDModel.Profile" Width="1.5" PointX="6.625" PointY="6" Height="3.7109993489583317" />
-        <AssociationConnector Association="PawhubBDModel.FK_Profiles_Cities" >
-          <ConnectorPoint PointX="10.75" PointY="2.5798533231568572" />
-          <ConnectorPoint PointX="7.17187375" PointY="2.5798533231568572" />
-          <ConnectorPoint PointX="7.17187375" PointY="6" />
-        </AssociationConnector>
-        <AssociationConnector Association="PawhubBDModel.FK_Profiles_Cities1" >
-          <ConnectorPoint PointX="10.75" PointY="2.8524291615784296" />
-          <ConnectorPoint PointX="7.679689375" PointY="2.8524291615784296" />
-          <ConnectorPoint PointX="7.679689375" PointY="6" />
-        </AssociationConnector>
-        <AssociationConnector Association="PawhubBDModel.FK_Profiles_Users" >
-          <ConnectorPoint PointX="6" PointY="7.1103011067708328" />
-          <ConnectorPoint PointX="6.625" PointY="7.1103011067708328" />
         </AssociationConnector>
         <EntityTypeShape EntityType="PawhubBDModel.UserRate" Width="1.5" PointX="9.375" PointY="11.625" Height="2.5571907552083317" />
         <AssociationConnector Association="PawhubBDModel.FK_UserRates_Pets" >
@@ -1936,12 +2059,42 @@
           <ConnectorPoint PointX="10.875" PointY="11.990143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="PawhubBDModel.FK_UserRates_Users" >
-          <ConnectorPoint PointX="4.5908181250152591" PointY="8.2206022135416656" />
-          <ConnectorPoint PointX="4.5908181250152591" PointY="13.650940755208328" />
-          <ConnectorPoint PointX="4.660807916697185" PointY="13.650940755208328" />
-          <ConnectorPoint PointX="4.827474583363851" PointY="13.650940755208328" />
+          <ConnectorPoint PointX="4.6343969531269078" PointY="8.605205078125" />
+          <ConnectorPoint PointX="4.6343969531269078" PointY="13.650940755208328" />
+          <ConnectorPoint PointX="4.7479655729204815" PointY="13.650940755208328" />
+          <ConnectorPoint PointX="4.9146322395871476" PointY="13.650940755208328" />
           <ConnectorPoint PointX="9.375" PointY="13.650940755208328" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="PawhubBDModel.Breed" Width="1.5" PointX="13.875" PointY="9.375" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="PawhubBDModel.Kind" Width="1.5" PointX="13.75" PointY="6.625" Height="1.9802864583333406" />
+        <AssociationConnector Association="PawhubBDModel.FK_Breeds_Kinds" >
+          <ConnectorPoint PointX="14.5625" PointY="8.60528645833334" />
+          <ConnectorPoint PointX="14.5625" PointY="9.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="PawhubBDModel.FK_PetProfiles_Breeds" >
+          <ConnectorPoint PointX="13.875" PointY="9.7785546875" />
+          <ConnectorPoint PointX="13" PointY="9.7785546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="PawhubBDModel.FK_PetProfiles_Kinds" >
+          <ConnectorPoint PointX="13.75" PointY="7.6151432291666694" />
+          <ConnectorPoint PointX="13" PointY="7.6151432291666694" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PawhubBDModel.Profile" Width="1.5" PointX="6.375" PointY="5.125" Height="3.7109993489583282" />
+        <AssociationConnector Association="PawhubBDModel.FK_Profiles_Cities" >
+          <ConnectorPoint PointX="10.75" PointY="2.582462080789214" />
+          <ConnectorPoint PointX="6.8710921875" PointY="2.582462080789214" />
+          <ConnectorPoint PointX="6.8710921875" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="PawhubBDModel.FK_Profiles_Cities1" >
+          <ConnectorPoint PointX="10.75" PointY="2.8537335403946065" />
+          <ConnectorPoint PointX="7.40429859375" PointY="2.8537335403946065" />
+          <ConnectorPoint PointX="7.40429859375" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="PawhubBDModel.FK_Profiles_Users" >
+          <ConnectorPoint PointX="6" PointY="6.8651025390625" />
+          <ConnectorPoint PointX="6.375" PointY="6.8651025390625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PawhubBDModel.Preregistro" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333282" />
         </Diagram>
     </Diagrams>
   </Designer>

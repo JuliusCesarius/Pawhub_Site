@@ -18,10 +18,16 @@ namespace PetHub_Site
             filters.Add(new HandleErrorAttribute());
         }
 
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+        }
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.IgnoreRoute("demo/{*pathInfo}");
+            routes.IgnoreRoute("presentacion/{*pathInfo}");
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters

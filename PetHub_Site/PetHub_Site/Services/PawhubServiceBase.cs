@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using cabinet.patterns.interfaces;
-using cabinet.patterns.clases;
+using blastic.patterns.interfaces;
+using blastic.patterns.clases;
 
 namespace PetHub_Site.Services
 {
@@ -14,7 +14,7 @@ namespace PetHub_Site.Services
 
         protected abstract IRepository<T> Repository { get; }
 
-        public bool AddValidationMessage(cabinet.patterns.enums.enumMessageType MessageType, string Message)
+        public bool AddValidationMessage(blastic.patterns.enums.enumMessageType MessageType, string Message)
         {
             CrossValidationMessage crossValidationMessage = new CrossValidationMessage
             {

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PetHub_Site.Models.ViewModels.PreregistroVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            UserName
+        </th>
+        <th>
+            LastName
+        </th>
+        <th>
+            UserEmail
+        </th>
+        <th>
+            UserCity
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserCity)
+        </td>
+    </tr>
+}
+
+</table>

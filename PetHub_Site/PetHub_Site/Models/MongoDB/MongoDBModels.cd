@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.Report">
+    <Position X="1.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAQIAAAAAAIBBCAQACAAAACAAIAAAAAQAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\Report.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.Lost" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABAAAAAAAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\Lost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.Picture" Collapsed="true">
+    <Position X="1.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\Picture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.Comment" Collapsed="true">
+    <Position X="1.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAQAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\Comment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.ContactInfo" Collapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAoAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\ContactInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.ReportDetail" Collapsed="true">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAQAAwAAAAEAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\ReportDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.Resque" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\Resque.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.Found" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\Found.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.Abuse" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\Abuse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.LostAndFound.UserAlert" Collapsed="true">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\LostAndFound\UserAlert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.Location" Collapsed="true">
+    <Position X="1.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.Breed" Collapsed="true">
+    <Position X="1.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\Breed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.Core.Kind" Collapsed="true">
+    <Position X="1.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAIAIABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\Kind.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.User">
+    <Position X="5.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAIkAABAAAEAABABAAAAEAAAEQAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.MultilingualContent" Collapsed="true">
+    <Position X="3.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\MultilingualContent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetHub_Site.Models.MongoDB.Core.Content" Collapsed="true">
+    <Position X="3.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MongoDB\Core\MultilingualContent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

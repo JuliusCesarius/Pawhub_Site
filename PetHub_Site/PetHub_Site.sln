@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetHub_Site", "PetHub_Site\PetHub_Site.csproj", "{4330B2A7-9DBA-4FD4-9B01-81C1FB0148D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blastic.patterns", "..\..\PawHub_core\blastic.patterns\blastic.patterns.csproj", "{6D7C7A8E-0EC7-4AA5-A5EC-2B73613DD90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blastic.mongodb", "..\..\blastic.mongodb\blastic.mongodb\blastic.mongodb.csproj", "{E0BA806C-3364-48AC-887F-2DF7CE2BD69E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{4330B2A7-9DBA-4FD4-9B01-81C1FB0148D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4330B2A7-9DBA-4FD4-9B01-81C1FB0148D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4330B2A7-9DBA-4FD4-9B01-81C1FB0148D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7C7A8E-0EC7-4AA5-A5EC-2B73613DD90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7C7A8E-0EC7-4AA5-A5EC-2B73613DD90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7C7A8E-0EC7-4AA5-A5EC-2B73613DD90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7C7A8E-0EC7-4AA5-A5EC-2B73613DD90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0BA806C-3364-48AC-887F-2DF7CE2BD69E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0BA806C-3364-48AC-887F-2DF7CE2BD69E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0BA806C-3364-48AC-887F-2DF7CE2BD69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BA806C-3364-48AC-887F-2DF7CE2BD69E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
