@@ -33,6 +33,22 @@ namespace PetHub_Site
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
+            routes.MapRoute(
+                 "Reports",
+                 "LAF/Reports/{id}",
+                 new { controller = "LostAndFound", action = "Get_ById", id = UrlParameter.Optional }
+             );
+            routes.MapRoute(
+                "ReportsCategories",
+                "LAF/Reports/{category}",
+                new { controller = "LostAndFound", action = "Get_ByCategoria", category = "" }
+            );
+            routes.MapRoute(
+                "ReportsCategoryAndId",
+                "LAF/Reports/{category}/{id}",
+                new { controller = "LostAndFound", action = "Get_ByCategoria_ById", category = "", id = UrlParameter.Optional }
+            );
+
 
         }
 

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="https://w14.winhost.com:8172/MsDeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="wskrs.com" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="True" profileName="Profile1" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="wskrscom" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/Mk8IizEvU6WKyBqyxQJsgAAAAACAAAAAAAQZgAAAAEAACAAAAAherwb0o/YALUPsL1E7NSjZ3ktTsqtYlafILoBnP/PIQAAAAAOgAAAAAIAACAAAAAanaxx4nEvA9L5Sz36J8LLwt24azvQZpF8taZWn8Q9DSAAAABhrhVWiL0ndfbQPwSH1LGOhbKAL14PkGBBZe5pZXr7q0AAAAAU0GFdUmaXpJSm+eHZYvEVW2QCxta7dfmFYjhh+bKaP0PpYeABzU0tZIHks9n5dZxtZwQM8eSo5QPb2tHAbsKZ" SelectedForPublish="True" />
+</publishData>

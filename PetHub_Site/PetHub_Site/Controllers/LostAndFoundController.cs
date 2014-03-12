@@ -105,5 +105,22 @@ namespace PetHub_Site.Controllers
             }
         }
 
+        [HttpGet]
+        public JsonResult Get_ById(int id)
+        {
+            return Json(new Report {   description="HOla"}, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult Get_ByCategoria(string category)
+        {
+            return Json(new Report { description = "Get_ByCategoria" }, JsonRequestBehavior.AllowGet);
+        }
+        
+        [HttpGet]
+        public JsonResult Get_ByCategoria_ById(string category, int id)
+        {
+            return Json(new Report { description = "Get_ByCategoria_ById" }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
